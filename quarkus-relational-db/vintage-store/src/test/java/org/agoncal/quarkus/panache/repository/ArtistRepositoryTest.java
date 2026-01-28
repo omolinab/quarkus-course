@@ -1,5 +1,6 @@
 package org.agoncal.quarkus.panache.repository;
 
+import io.quarkus.test.TestTransaction;
 import io.quarkus.test.junit.QuarkusTest;
 
 import org.agoncal.quarkus.jdbc.Artist;
@@ -18,6 +19,7 @@ class ArtistRepositoryTest {
 	ArtistRepository repository;
 
     @Test
+	@TestTransaction
     void shouldCreateAndfindAnArtist() throws SQLException {
 	    Artist artist = new Artist("name","bio");
 
