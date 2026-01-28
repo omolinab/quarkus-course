@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import io.quarkus.test.junit.QuarkusTest;
 
+import org.agoncal.quarkus.jpa.Customer;
 import org.junit.jupiter.api.Test;
 import io.quarkus.test.TestTransaction;
 
