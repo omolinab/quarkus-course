@@ -6,10 +6,13 @@ import java.time.Instant;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "t_items")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Item extends PanacheEntity {
 
     @Column(length = 100, nullable = false)

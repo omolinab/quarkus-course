@@ -16,6 +16,7 @@ public class Book extends Item {
     public int nbOfPages;
     @Column(name = "publication_date")
     public LocalDate publicationDate;
+    @Column(length = 20)
     @Enumerated(EnumType.STRING)
     public Language language;
 }
