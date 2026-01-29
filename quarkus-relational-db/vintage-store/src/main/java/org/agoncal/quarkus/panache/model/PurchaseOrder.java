@@ -13,8 +13,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "t_purchase_orders")
 public class PurchaseOrder extends PanacheEntity {
 
     @Column(name = "purchase_order_date", nullable = false)
