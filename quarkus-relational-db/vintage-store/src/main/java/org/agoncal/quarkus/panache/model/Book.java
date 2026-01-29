@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 public class Book extends Item {
@@ -14,5 +16,6 @@ public class Book extends Item {
     public int nbOfPages;
     @Column(name = "publication_date")
     public LocalDate publicationDate;
+    @Enumerated(EnumType.STRING)
     public Language language;
 }
