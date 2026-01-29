@@ -1,6 +1,7 @@
 package org.agoncal.quarkus.panache.repository;
 
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.inject.Inject;
 
 import org.agoncal.quarkus.jdbc.Artist;
 import org.agoncal.quarkus.jpa.Customer;
@@ -10,8 +11,6 @@ import org.agoncal.quarkus.panache.model.OrderLine;
 import org.agoncal.quarkus.panache.model.Publisher;
 import org.agoncal.quarkus.panache.model.PurchaseOrder;
 import org.junit.jupiter.api.Test;
-
-import com.google.inject.Inject;
 
 import io.quarkus.test.TestTransaction;
 
