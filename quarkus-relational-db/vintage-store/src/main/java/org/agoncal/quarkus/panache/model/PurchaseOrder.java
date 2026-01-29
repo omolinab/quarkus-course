@@ -29,4 +29,9 @@ public class PurchaseOrder extends PanacheEntity {
     @Column(name = "created_date", nullable = false)
     public Instant createdDate = Instant.now();
 
+    public void addOrderLine(OrderLine orderLine) {
+        orderLines.add(orderLine);
+        orderLine.purchaseOrder = this;
+    }
+
 }
