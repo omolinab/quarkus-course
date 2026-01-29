@@ -9,6 +9,7 @@ import org.agoncal.quarkus.panache.model.Publisher;
 import org.junit.jupiter.api.Test;
 import io.quarkus.test.TestTransaction;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 @QuarkusTest
@@ -29,6 +30,8 @@ class PurchaseOrderRepositoryTest {
 		book.title = "title of the book";
 		book.nbOfPages = 500;
 		book.language = Language.ENGLISH;
+		book.price = new BigDecimal(10);
+		book.isbn = "isbn";
 		//Sets the relationships
 		book.publisher = publisher;
 		book.artist = artist;
