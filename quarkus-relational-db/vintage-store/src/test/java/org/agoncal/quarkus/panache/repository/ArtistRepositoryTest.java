@@ -35,7 +35,6 @@ class ArtistRepositoryTest {
 	    assertEquals("name", artist.getName());
 
 		repository.deleteById(artist.getId());
-
 		assertEquals(count, repository.count());
 	}
 
