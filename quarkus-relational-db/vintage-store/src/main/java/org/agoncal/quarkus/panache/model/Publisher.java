@@ -1,6 +1,7 @@
 package org.agoncal.quarkus.panache.model;
 
 import java.time.Instant;
+import java.util.Optional;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.Column;
@@ -21,5 +22,9 @@ public class Publisher extends PanacheEntity {
 
 	public Publisher(String name) {
 		this.name = name;
+	}
+
+	public static Optional<Publisher> findByName(String name) {
+		return Publisher.find("name", name).firstResultOptional();
 	}
 }

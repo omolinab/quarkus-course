@@ -1,6 +1,7 @@
 package org.agoncal.quarkus.panache.repository;
 
 import io.quarkus.test.junit.QuarkusTest;
+import jakarta.persistence.EntityNotFoundException;
 
 import org.agoncal.quarkus.panache.model.Publisher;
 import org.junit.jupiter.api.Test;
@@ -29,6 +30,7 @@ class PublisherRepositoryTest {
 		assertEquals(count + 1, Publisher.count());
 
 	    publisher = Publisher.findById(publisher.id);
+		publisher = Publisher.findByName(publisher.name).orElseThrow(EntityNotFoundException::new);
 	    assertEquals("name",publisher.name);
 
 		Publisher.deleteById(publisher.id);
