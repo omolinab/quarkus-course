@@ -10,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "t_purchase_order_line")
+@Table(name = "t_purchase_order_lines")
 public class OrderLine extends PanacheEntity {
 
     @ManyToOne
