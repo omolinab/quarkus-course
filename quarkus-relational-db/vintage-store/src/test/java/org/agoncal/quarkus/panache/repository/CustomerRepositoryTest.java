@@ -20,6 +20,9 @@ class CustomerRepositoryTest {
     @Test
     @TestTransaction
     void shouldCreateAndfindACustomer() throws SQLException {
+
+		assertTrue(repository.listAllDans().size() <= repository.count());
+
 	    Customer customer = new Customer("first name","last name","email");
 
 	    repository.persist(customer);
