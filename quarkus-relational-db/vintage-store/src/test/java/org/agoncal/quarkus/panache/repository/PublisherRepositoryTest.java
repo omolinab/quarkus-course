@@ -32,6 +32,7 @@ class PublisherRepositoryTest {
 	    publisher = Publisher.findById(publisher.id);
 		publisher = Publisher.findByName(publisher.name).orElseThrow(EntityNotFoundException::new);
 	    assertEquals("name",publisher.name);
+		assertTrue(Publisher.findContainName("name").size() >= 1);
 
 		Publisher.deleteById(publisher.id);
 		assertEquals(count, Publisher.count());
