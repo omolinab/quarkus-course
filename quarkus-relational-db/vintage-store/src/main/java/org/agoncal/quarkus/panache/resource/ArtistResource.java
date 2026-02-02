@@ -6,6 +6,8 @@ import org.agoncal.quarkus.jdbc.Artist;
 import org.agoncal.quarkus.panache.repository.ArtistRepository;
 
 import jakarta.inject.Inject;
+import jakarta.transaction.Transactional;
+import jakarta.transaction.Transactional.TxType;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
@@ -23,6 +25,7 @@ import jakarta.ws.rs.core.UriInfo;
 @Path("/api/artists")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
+@Transactional(TxType.SUPPORTS)
 public class ArtistResource {
 
     @Inject
@@ -39,6 +42,7 @@ public class ArtistResource {
         return repository.listAllArtistsSorted();
     }
 
+    @Transactional(TxType.REQUIRED)
     @POST
     public Response persistArtist(Artist artist, @Context UriInfo uriInfo) {
         repository.persist(artist);
@@ -46,6 +50,7 @@ public class ArtistResource {
         return Response.created(builder.build()).build();
     }
 
+    @Transactional
     @DELETE
     @Path("{id}")
     public void deleteArtist(@PathParam("id") Long id) {
