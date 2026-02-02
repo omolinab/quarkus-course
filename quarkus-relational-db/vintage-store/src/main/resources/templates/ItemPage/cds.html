@@ -10,21 +10,19 @@
         <tr>
             <th>#</th>
             <th>Title</th>
-            <th>Isbn</th>
-            <th>Nº page</th>
+            <th>Genre</th>
+            <th>Music company</th>
             <th>Price</th>
-            <th>Language</th>
         </tr>
     </thead>
     <tbody>
-    {#for book in books}
+    {#for cd in cds}
         <tr>
-            <th>{book.id}</th>
-            <th>{book.title}</th>
-            <th>{book.isbn}</th>
-            <th>{book.nbOfPages}</th>
-            <th>{book.price}</th>
-            <th>{book.language}</th>
+            <th>{cd.id}</th>
+            <th>{cd.title}</th>
+            <th>{cd.genre}</th>
+            <th>{cd.musicCompany}</th>
+            <th>{cd.price}</th>
         </tr>
     {/for}
     </tbody>
