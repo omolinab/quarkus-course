@@ -30,7 +30,7 @@ public class ArtistResource {
 
     @GET
     public List<Artist> listAllArtists() {
-        return repository.listAll();
+        return repository.listAllArtistsSorted();
     }
 
 }
