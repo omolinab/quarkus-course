@@ -28,4 +28,10 @@ public class ItemPage {
         return Templates.book(Book.findById(id));
     }
 
+    @GET
+    @Path("/books")
+    public TemplateInstance showBookAllBooks() {
+        return Templates.books(Book.listAll());
+    }
+
 }
