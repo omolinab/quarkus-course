@@ -37,7 +37,11 @@ public class ItemPage {
     @GET
     @Path("/books")
     public TemplateInstance showBookAllBooks(@QueryParam("query") String query, @QueryParam("sort") @DefaultValue("id") String sort, @QueryParam("page") @DefaultValue("0") Integer pageIndex, @QueryParam("size") @DefaultValue("1000") Integer pageSize) {
-        return Templates.books(Book.find(query, Sort.by(sort)).page(pageIndex, pageSize).list());
+        return Templates.books(Book.find(query, Sort.by(sort)).page(pageIndex, pageSize).list())
+                .data("query",query)
+                .data("sort",sort)
+                .data("pageIndex",pageIndex)
+                .data("pageSize",pageSize);
     }
 
     @GET
