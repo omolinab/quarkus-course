@@ -3,6 +3,7 @@ package org.agoncal.quarkus.panache.page;
 import java.util.List;
 
 import org.agoncal.quarkus.panache.model.Book;
+import org.agoncal.quarkus.panache.model.CD;
 
 import io.quarkus.qute.CheckedTemplate;
 import io.quarkus.qute.TemplateInstance;
@@ -20,6 +21,8 @@ public class ItemPage {
     public static class Templates {
         public static native TemplateInstance book(Book book);
         public static native TemplateInstance books(List<Book> books);
+        public static native TemplateInstance cd(CD cd);
+        public static native TemplateInstance cds(List<CD> cds);
     }
 
     @GET
@@ -32,6 +35,18 @@ public class ItemPage {
     @Path("/books")
     public TemplateInstance showBookAllBooks() {
         return Templates.books(Book.listAll());
+    }
+
+    @GET
+    @Path("/cds/{id}")
+    public TemplateInstance showCDById(@PathParam("id") Long id) {
+        return Templates.cd(CD.findById(id));
+    }
+
+    @GET
+    @Path("/cds")
+    public TemplateInstance showCDAllCDs() {
+        return Templates.cds(CD.listAll());
     }
 
 }
