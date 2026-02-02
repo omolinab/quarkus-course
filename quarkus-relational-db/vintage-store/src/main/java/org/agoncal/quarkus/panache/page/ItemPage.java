@@ -19,7 +19,7 @@ public class ItemPage {
     @CheckedTemplate
     public static class Templates {
         public static native TemplateInstance book(Book book);
-        public static native TemplateInstance books(List<Book> book);
+        public static native TemplateInstance books(List<Book> books);
     }
 
     @GET
